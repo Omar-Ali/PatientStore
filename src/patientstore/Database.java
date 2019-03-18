@@ -10,8 +10,6 @@ import java.sql.DriverManager ;
 import java.sql.SQLException ;
 import java.sql.Statement ;
 import java.sql.ResultSet ;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -30,7 +28,7 @@ public class Database {
         
     }
     
-    public ResultSet executeQuery(String query){
+    public ResultSet executePatientQuery(String query){
         ResultSet rs = null;
         try {
             this.handle();
@@ -42,7 +40,7 @@ public class Database {
         return rs;
     }
     
-    public void executeUpdate(String id, String name, String type, String rank) throws SQLException, ClassNotFoundException{
+    public void executePatientUpdate(String id, String name, String type, String rank) throws SQLException, ClassNotFoundException{
         this.handle();
         Statement stmnt = null ;
         try {
@@ -52,6 +50,18 @@ public class Database {
         } catch(Exception x) {
             String query = "UPDATE `Patient` SET `name` = '" + name + "',`type` = '" + type + "',`rank` = '" + rank + "' WHERE `id` = '" + id + "'";;
             stmnt.executeUpdate(query);
+            System.out.println("Error: " + x.getMessage());
+        }
+    }
+    
+    public void executeRecordUpdate(int patient_id, String department, int count) throws SQLException, ClassNotFoundException{
+        this.handle();
+        Statement stmnt = null ;
+        try {
+            stmnt = connection.createStatement();
+            String query = "INSERT INTO `Record` (`patient_id`, `department`, `count`) VALUES ('" + patient_id + "','" + department + "','" + count + "');";
+            stmnt.executeUpdate(query);
+        } catch(Exception x) {
             System.out.println("Error: " + x.getMessage());
         }
     }

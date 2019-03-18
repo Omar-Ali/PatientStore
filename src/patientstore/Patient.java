@@ -20,7 +20,7 @@ public class Patient {
     
     public Patient getById(String id) throws SQLException{
         if(id.isEmpty()) return this;
-        ResultSet rs = new Database().executeQuery("select * from Patient where `id` = '" + id + "' limit 1;");
+        ResultSet rs = new Database().executePatientQuery("select * from Patient where `id` = '" + id + "' limit 1;");
         if (rs.next()){
             this.id = rs.getInt("id");
             this.name = rs.getString("name");

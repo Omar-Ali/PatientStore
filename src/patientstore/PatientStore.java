@@ -31,6 +31,8 @@ public class PatientStore extends Application {
     private NameField nameField;
     private RankDrop rankDrop;
     private TypeDrop typeDrop;
+    private CountField countField;
+    private DepartmentDrop depDrop;
     @Override
     public void start(Stage primaryStage) throws SQLException, ClassNotFoundException {
         
@@ -48,6 +50,8 @@ public class PatientStore extends Application {
                 rankDrop.populateMenu(((TypeDrop)event.getSource()).getValue().toString() );
             }
         });
+        countField = new CountField();
+        depDrop = new DepartmentDrop();
         
 
 //        HBox headBox = new HBox();
@@ -73,17 +77,22 @@ public class PatientStore extends Application {
         HBox fourthHBox = new HBox();
         fourthHBox.setPadding(new Insets(15, 12, 15, 12));
         fourthHBox.setSpacing(15);
-        fourthHBox.getChildren().addAll(historyBtn, printBtn);
+        fourthHBox.getChildren().addAll(depDrop, countField);
+        
+        HBox fifthHBox = new HBox();
+        fifthHBox.setPadding(new Insets(15, 12, 15, 12));
+        fifthHBox.setSpacing(15);
+        fifthHBox.getChildren().addAll(historyBtn, printBtn);
         
         VBox vBox = new VBox();
         vBox.setPadding(new Insets(15, 12, 15, 12));
         vBox.setSpacing(15);
-        vBox.getChildren().addAll(firstHBox, secondHBox, thirdHBox, fourthHBox);
+        vBox.getChildren().addAll(firstHBox, secondHBox, thirdHBox, fourthHBox, fifthHBox);
 
         StackPane root = new StackPane();
         root.getChildren().addAll(vBox);
         
-        Scene scene = new Scene(root, 650, 400);
+        Scene scene = new Scene(root, 650, 480);
         searchBtn.relocate(0, 0);
         primaryStage.setTitle("Patient Base");
         primaryStage.setScene(scene);
@@ -107,15 +116,24 @@ public class PatientStore extends Application {
     }
     
     public String getTypeFieldText(){
-        return this.typeDrop.getValue().toString();
+        return this.typeDrop == null ? "" : this.typeDrop.getValue().toString();
     }
     
     public String getRankFieldText(){
-        return this.rankDrop.getValue().toString();
+        return this.rankDrop.getValue() == null ? "" : this.rankDrop.getValue().toString();
+
     }
     
     public BButton getSearchButton(){
         return this.searchBtn;
+    }
+    
+    public int getCountFieldValue(){
+        return Integer.parseInt(this.countField.getValueFactory().getValue().toString());
+    }
+    
+    public String getDepartmenFieldText(){
+        return this.depDrop.getValue() == null ? "" : this.depDrop.getValue().toString();
     }
     
     public void handleSearchResult(Patient patient){
@@ -140,6 +158,10 @@ public class PatientStore extends Application {
     
     public void showNotFoundMessage(){
         new Alert(Alert.AlertType.INFORMATION, "This patient was not found in our Databases!").showAndWait();
+    }
+    
+    public void showCompleteFields(){
+        new Alert(Alert.AlertType.INFORMATION, "Some of the fields are missing!").showAndWait();
     }
     
 }
