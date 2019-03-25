@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
  */
 public class IdField extends TextField {
     PatientStore currentApp;
+    HistoryView historyView;
     public IdField(PatientStore currentApp){
         setStyle("-fx-font-size: 25;"
                 + "-fx-text-fill: #aaaaaa;");
@@ -29,9 +30,29 @@ public class IdField extends TextField {
         });
     }
     
+    public IdField(HistoryView historyView){
+        setStyle("-fx-font-size: 25;"
+                + "-fx-text-fill: #aaaaaa;");
+        setPrefWidth(400);
+        this.historyView = historyView;
+        setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+            @Override
+            public void handle(KeyEvent event) {
+                handleHistoryKeyPressed(event);
+            }
+        });
+    }
+    
     private void handleKeyPressed(KeyEvent event){
         if(event.getCode().toString().equals("ENTER")){
             currentApp.getSearchButton().fire();
+        }
+    }
+    
+    private void handleHistoryKeyPressed(KeyEvent event){
+        if(event.getCode().toString().equals("ENTER")){
+            historyView.getSearchButton().fire();
         }
     }
 }

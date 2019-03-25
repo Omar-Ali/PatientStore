@@ -10,10 +10,15 @@ package patientstore;
  * @author Omar
  */
 public class HistoryButton extends BButton{
-
-    public HistoryButton(String text) {
+    private PatientStore currentApp;
+    public HistoryButton(PatientStore currentApp, String text) {
         super(text);
         setPrefWidth(300);
+        this.currentApp = currentApp;
+    }
+    
+    protected void handleClick(){
+        new HistoryView(currentApp);
     }
 
 }

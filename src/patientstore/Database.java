@@ -54,7 +54,7 @@ public class Database {
         }
     }
     
-    public void executeRecordUpdate(int patient_id, String department, int count) throws SQLException, ClassNotFoundException{
+    public void executeRecordUpdate(int patient_id, String department, String count) throws SQLException, ClassNotFoundException{
         this.handle();
         Statement stmnt = null ;
         try {
@@ -70,5 +70,17 @@ public class Database {
         if (connection != null) {
             connection.close();
         }
+    }
+    
+    public ResultSet executeRecordQuery(String query){
+        ResultSet rs = null;
+        try {
+            this.handle();
+            Statement stmnt = connection.createStatement();
+            rs = stmnt.executeQuery(query);
+        } catch(Exception x) {
+            System.out.println("Error: " + x.getMessage());
+        }
+        return rs;
     }
 }

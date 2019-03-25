@@ -6,15 +6,18 @@
             <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/PatientStore.java</file>
             <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/Database.java</file>
             <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/PrintButton.java</file>
-            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/TypeDrop.java</file>
-            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/Patient.java</file>
-            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/IdField.java</file>
             <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/BButton.java</file>
-            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/RankDrop.java</file>
             <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/Record.java</file>
             <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/SearchButton.java</file>
             <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/HistoryButton.java</file>
             <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/NameField.java</file>
+            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/LabelPrinter.java</file>
+            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/DepartmentDrop.java</file>
+            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/CountField.java</file>
+            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/TypeDrop.java</file>
+            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/Patient.java</file>
+            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/IdField.java</file>
+            <file>file:/Users/Omar/NetBeansProjects/PatientStore/src/patientstore/RankDrop.java</file>
         </group>
     </open-files>
 </project-private>

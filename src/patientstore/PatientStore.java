@@ -38,7 +38,7 @@ public class PatientStore extends Application {
         
         searchBtn = new SearchButton(this, "Search");
         BButton printBtn = new PrintButton(this, "Print");
-        BButton historyBtn = new HistoryButton("History");
+        BButton historyBtn = new HistoryButton(this, "History");
         nameField = new NameField();
         idField = new IdField(this);
         typeDrop = new TypeDrop();
@@ -93,7 +93,6 @@ public class PatientStore extends Application {
         root.getChildren().addAll(vBox);
         
         Scene scene = new Scene(root, 650, 480);
-        searchBtn.relocate(0, 0);
         primaryStage.setTitle("Patient Base");
         primaryStage.setScene(scene);
         primaryStage.show();
